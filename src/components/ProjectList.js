@@ -1,14 +1,18 @@
 import React from "react";
-import ProjectItem from "./ProjectItem";
 
-function ProjectList({ projects }) {
-  console.log(projects);
+function ProjectItem({ name, about, technologies }) {
   return (
-    <div id="projects">
-      <h2>My Projects</h2>
-      <div id="project-list">{/* render ProjectItem components here */}</div>
+    <div className="project-item">
+      <h3>{name}</h3>
+      <p>{about}</p>
+      <div className="technologies">
+        {
+      /* render a <span> for each technology in the technologies array */
+      technologies.map(technology => <span key={technology}>{technology}</span>)
+      }
+      </div>
     </div>
   );
 }
 
-export default ProjectList;
+export default ProjectItem;
